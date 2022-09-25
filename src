@@ -1,0 +1,37 @@
+import arts
+print(arts.welcome)
+print(arts.caesar_art)
+print(" ")
+
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+redo = True
+
+while redo :
+	
+	drct = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
+	txt = input("\nType your message:\n").lower()
+	shft = int(input("\nType the shift number:\n"))
+	print(" ")
+	
+	final = ""
+	for i in txt :
+			if i in alphabet :
+				position = alphabet.index(i)
+				if drct == "encode" :
+					position += shft
+					final += alphabet[position]
+				else :
+					 position -= shft
+					 final += alphabet[position]
+			else :
+				final += i
+				
+	print(f"\nYour {drct}d messege is {final}\n")
+
+	choice = input("Do you want to start again? Type 'yes' or 'no' : ").lower()
+	if choice == 'yes' :
+			redo = True
+			print(" ")
+	else :
+			redo = False
+
